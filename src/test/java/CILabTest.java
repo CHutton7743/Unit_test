@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CILabTest {
 
@@ -21,12 +21,22 @@ public class CILabTest {
 
     @Test
     public void detectCapitalUseTest1() {
-
+        myString.setString("Vader");
+        assertTrue(myString.detectCapitalUse());
     }
     @Test
     public void detectCapitalUseTest2() {
-
+        myString.setString("MEDICHLORIANS");
+        assertTrue(myString.detectCapitalUse());
     }
-
-
+    @Test
+    public void detectCapitalUseTest3() {
+        myString.setString("republic");
+        assertTrue(myString.detectCapitalUse());
+    }
+    @Test
+    public void detectCapitalUseTest4() {
+        myString.setString("SiDiOuS");
+        assertFalse(myString.detectCapitalUse());
+    }
 }
